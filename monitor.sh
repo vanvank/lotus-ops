@@ -9,7 +9,7 @@ then
 	ctime=$(date)
 	echo $ctime
 	echo "auto pledge is down, restart"
-        /usr/bin/python3 -u /home/psdz/00.py >> /home/psdz/00.log &
+        /usr/bin/python3 -u /home/psdz/auto_pledge.py >> /home/psdz/auto_pledge.log &
 	let n=n+1
 else
 	#echo "auto pledge is up"
