@@ -4,7 +4,7 @@
 export GOPROXY=https://mirrors.aliyun.com/goproxy/ && \
 sudo apt update && \
 sudo apt install mesa-opencl-icd ocl-icd-opencl-dev -y && \
-sudo add-apt-repository ppa:longsleep/golang-backports && \
+sudo add-apt-repository ppa:longsleep/golang-backports -y && \
 sudo apt update && \
 sudo apt install curl golang-go gcc git bzr jq pkg-config  -y && \
 sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh && \
