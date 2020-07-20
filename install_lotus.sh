@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # install deps
-export GOPROXY=https://mirrors.aliyun.com/goproxy/ && \
 sudo apt update && \
 sudo apt install mesa-opencl-icd ocl-icd-opencl-dev -y && \
 sudo add-apt-repository ppa:longsleep/golang-backports -y && \
