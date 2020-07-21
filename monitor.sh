@@ -3,7 +3,7 @@ n=0
 while true
 do
 sleep 3
-ps aux|grep 00.py|grep -v grep > /dev/null
+ps aux|grep auto_pledge.py|grep -v grep > /dev/null
 if [ $? != 0 ]
 then
 	ctime=$(date)
