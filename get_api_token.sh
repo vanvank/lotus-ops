@@ -1,7 +1,7 @@
 #!/bin/bash
 $1=user
 $2=host
-echo "要获取lotus的API请输入1，获取miner的API请输入2 "
+echo "要获取lotus的API和TOKEN请输入1，获取miner的API和TOKEN请输入2 "
 read choose
 if [ $choose == 1 ];then
 dir=/lotus_data/.lotus
