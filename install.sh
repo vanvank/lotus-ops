@@ -1,5 +1,5 @@
 #!/bin/bash
-# user root
+# 用root执行次脚本
 # 设置免密登录
 
 # 免密登录的user，同时也是后面lotus_data所有者
