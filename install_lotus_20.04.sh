@@ -17,10 +17,4 @@ sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && 
 source $HOME/.cargo/env
 
 # pull code and make lotus
-cd ~
-git clone https://github.com/filecoin-project/lotus.git
-cd lotus/
-#git checkout testnet/3
-#git checkout interopnet
-make clean && make all
-sudo make install
+./update_lotus.sh
