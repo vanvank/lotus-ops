@@ -1,7 +1,7 @@
 #!/bin/bash
 # user
 branch=$1
-if [ -n $branch ];then
+if [ -z $branch ];then
 branch=master
 fi
 echo '---'
