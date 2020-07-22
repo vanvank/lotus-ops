@@ -1,10 +1,13 @@
 #!/bin/bash
 # user
-echo -n "pls enter the branch (enter for master): "
-read branch
+branch=$1
 if [ -n $branch ];then
 branch=master
 fi
+echo '---'
+echo "Update branch: $branch"
+echo '---'
+echo
 cd ~
 rm -rf lotus/
 git clone --branch=$branch https://github.com/filecoin-project/lotus.git
