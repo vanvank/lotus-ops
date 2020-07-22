@@ -11,7 +11,7 @@ def get_ip():
     return ip
 
 
-def gen_file(pre1=true,pre2=true,commit=true):
+def gen_file(pre1="true",pre2="true",commit="true"):
     worker_ip = get_ip()
     home_dir = os.path.expanduser('~')
     start_file = os.path.join(home_dir,"start_worker.sh")
@@ -20,4 +20,3 @@ def gen_file(pre1=true,pre2=true,commit=true):
         f.write("#!/bin/bash"+"\n")
         f.write(line + "\n")
     os.chmod(start_file,stat.S_IRWXU)
-
