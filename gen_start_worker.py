@@ -20,3 +20,9 @@ def gen_file(pre1="true",pre2="true",commit="true"):
         f.write("#!/bin/bash"+"\n")
         f.write(line + "\n")
     os.chmod(start_file,stat.S_IRWXU)
+
+def main():
+    gen_file()
+
+if __name__=="__main__":
+    main()
