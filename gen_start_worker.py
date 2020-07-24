@@ -22,7 +22,7 @@ def gen_file(pre1="true",pre2="true",commit="true", gpu="false"):
     os.chmod(start_file,stat.S_IRWXU)
 
 def main():
-    gen_file(sys.argv[1], sys.argv[2], sys.argv3, sys.argv[4])
+    gen_file(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
 
 if __name__=="__main__":
     main()
