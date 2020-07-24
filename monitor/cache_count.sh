@@ -1,5 +1,5 @@
 #!/bin/bash
-# count num of sectors  and total size in dir /lotus_data/.lotusworker/cache
+# count num of sectors  and total size of dir:/lotus_data/.lotusworker/cache
 
 set -x
 max_job=3
