@@ -1,8 +1,8 @@
 #!/bin/bash
-if [ -n $LOTUS_MINER_PATH ];then
-  LOTUS_STORAGE_PATH=$LOTUS_MINER_PATH
+if [ -z $LOTUS_MINER_PATH ];then
+  LOTUS_MINER_PATH=$LOTUS_STORAGE_PATH
 fi
-cd $LOTUS_STORAGE_PATH
+cd $LOTUS_MINER_PATH
 echo -n "请输入miner IP地址: "
 read ip
 sed -i "/\[API\]/aListenAddress = \"\/ip4\/$ip\/tcp\/2345\/http\""  config.toml
