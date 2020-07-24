@@ -8,7 +8,7 @@ def get_ip():
     hostname = socket.gethostname()
     # 获取本机ip
     ip = socket.gethostbyname(hostname)
-    if ip == "127.0.0.1":
+    if ip[0:3] == "127" or ip[0:3] != "192":
         ip = "0.0.0.0"
     return ip
 
