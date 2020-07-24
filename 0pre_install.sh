@@ -39,8 +39,12 @@ echo 'export RUST_LOG=info' >> /etc/profile
 sed -i '/FIL_PROOFS_MAXIMIZE_CACHING/d' /etc/profile
 echo 'export FIL_PROOFS_MAXIMIZE_CACHING=1' >> /etc/profile
 
+####  LOTUS_STORAGE_PATH  will remove
 sed -i '/LOTUS_STORAGE_PATH/d' /etc/profile
 echo 'export LOTUS_STORAGE_PATH=/lotus_data/.lotusstorage' >> /etc/profile
+
+sed -i '/LOTUS_MINER_PATH/d' /etc/profile
+echo 'export LOTUS_MINER_PATH=/lotus_data/.lotusstorage' >> /etc/profile
 
 sed -i '/RUSTFLAGS/d' /etc/profile
 echo 'export RUSTFLAGS="-C target-cpu=native -g"' >> /etc/profile
@@ -54,8 +58,13 @@ echo 'export TMPDIR=/lotus_data/tmp' >> /etc/profile
 sed -i '/LOTUS_PATH/d' /etc/profile
 echo 'export LOTUS_PATH=/lotus_data/.lotus' >> /etc/profile
 
+####  WORKER_PATH will remove 
 sed -i '/WORKER_PATH/d' /etc/profile
 echo 'export WORKER_PATH=/lotus_data/.lotusworker' >> /etc/profile
+
+sed -i '/LOTUS_WORKER_PATH/d' /etc/profile
+echo 'export LOTUS_WORKER_PATH=/lotus_data/.lotusworker' >> /etc/profile
+
 
 if [[ $cn == 'y' ]]
 then
