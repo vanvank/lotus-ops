@@ -9,8 +9,8 @@ def get_ip():
     # 获取本机ip
     ip = socket.gethostbyname(hostname)
     if ip[0:3] == "127" or ip[0:3] != "192":
-        ip = "0.0.0.0"
-    return ip
+        ip = input("无法取得本机ip地址，请手动输入：")
+    return strip(ip)
 
 
 def gen_file(pre1="true",pre2="true",commit="true", gpu="false"):
