@@ -3,8 +3,13 @@ if [ -z $LOTUS_MINER_PATH ];then
   LOTUS_MINER_PATH=$LOTUS_STORAGE_PATH
 fi
 cd $LOTUS_MINER_PATH
+
+ip=$1
+if [ -z $ip ];then
 echo -n "请输入miner IP地址: "
 read ip
+fi
+
 sed -i "/\[API\]/aListenAddress = \"\/ip4\/$ip\/tcp\/2345\/http\""  config.toml
 sed -i "/RemoteListenAddress/aRemoteListenAddress = \"$ip:2345\""  config.toml
 
