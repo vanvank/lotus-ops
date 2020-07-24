@@ -4,14 +4,14 @@ import time
 import re
 
 def check_worker_core(host):
-    cmd1="lotus-storage-miner workers list|grep -A1 %s|tail -n1" %host
+    cmd1="lotus-miner sealing workers|grep -A1 %s|tail -n1" %host
     line=subprocess.check_output(cmd1, shell=True).decode()
     core=re.sub("\D","", line)
     core=int(core)
     return core
 
 def check_miner_core():
-    cmd1="lotus-storage-miner workers list|head -n2|tail -n1"
+    cmd1="lotus-miner sealing workers|head -n2|tail -n1"
     line=subprocess.check_output(cmd1, shell=True).decode()
     core=re.sub("\D","", line)
     core=int(core)
@@ -46,7 +46,7 @@ def curr_cores(hosts):
     return cores
 
 def run_pledge():
-    cmd = "lotus-storage-miner sectors pledge"
+    cmd = "lotus-miner sectors pledge"
     subprocess.call(cmd, shell=True)
     time.sleep(60*3)
 
