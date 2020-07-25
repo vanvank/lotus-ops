@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# 异构集群中给AMD派发任务
+# 异构集群中根据core数量给AMD派发任务
 
 import subprocess
 import time
