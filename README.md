@@ -1,7 +1,10 @@
 # lotus scripts
 git clone https://github.com/vanvank/lotus-ops.git
+
 cd lotus-ops
+
 chmod u+x *.py
+
 chmod u+x *.sh
 
 1. use 0pre_install.sh to prepair env for lotus
