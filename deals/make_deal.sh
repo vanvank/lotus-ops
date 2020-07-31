@@ -8,5 +8,5 @@ dd if=/dev/zero of=$filename count=$count bs=1M
 CID=`lotus client import $filename|awk '{print $4}'`
 echo "文件CID是： $CID"
 date
-echo -n "DealCID 是： "
+echo -n "DealCID是： "
 lotus client deal $CID $miner_id 0.0000000005 622080
