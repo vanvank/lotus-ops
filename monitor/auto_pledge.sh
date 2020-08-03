@@ -4,7 +4,6 @@ set -x
 busy_rate=0.8
 max_job_each=4
 
-
 average_job_each=$(( $busy_rate*$max_job_each-1 ))
 
 while true
