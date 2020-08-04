@@ -1,6 +1,10 @@
 #!/bin/bash
 
 miner_id=$1
+if [[ -z $miner_id ]];then
+    echo -n "请输入交易对象的miner ID： "
+    read miner_id
+
 count=${2:-1}  
 
 filename=`date +%m-%d-%H-%M-%S`
