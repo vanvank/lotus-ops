@@ -1,6 +1,6 @@
 #!/bin/bash
-clean_data=$1
-update_version=$2
+is_clean_data=$1
+is_update=$2
 
 branch=ntwk-calibration
 user=psdz
@@ -13,13 +13,12 @@ commit="true"
 gpu="false"
 #gpu="true"
 
-if [[ $clean_data == "c" ]];then
+if [[ $is_clean_data == 'y' ]];then
     rm -rf $WORKER_PATH
+    ./get_api_token.sh $user $miner_ip
 fi
 
-./get_api_token.sh $user $miner_ip
-
-if [[ $update_version == "u" ]];then
+if [[ $is_update == 'y' ]];then
   ./update_lotus.sh $branch
 fi
 
