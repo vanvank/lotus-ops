@@ -6,7 +6,9 @@ branch:ntwk-calibration
 
 # daemon
 daemon_ip:192.168.11.102
+daemon_login_name:xl
 # daemon_ip:192.168.0.30
+# daemon_login_name:muse-01
 
 # miner
 miner_internal_ip:192.168.11.48
