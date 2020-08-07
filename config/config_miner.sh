@@ -4,7 +4,9 @@ if [ -z $LOTUS_MINER_PATH ];then
 fi
 cd $LOTUS_MINER_PATH
 
-ip=$1
+source /etc/filecoin-mining.config
+
+ip=$miner_internal_ip
 if [ -z $ip ];then
 echo -n "请输入miner IP地址: "
 read ip
