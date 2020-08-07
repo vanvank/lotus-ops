@@ -1,5 +1,13 @@
 #!/bin/bash
 ###适用于两张2TB的nvme，其中1张是系统盘，做了lvm， 另外一张用下面的命令进行扩展
+
+# root用户执行脚本
+logon_user=$(whoami)
+if [[ logon_user != root ]];then
+    echo "请用root执行此脚本"
+    exit 1
+fi
+
 echo -n "请输入需要扩展逻辑卷的裸磁盘（如/dev/nvme0n1）： "
 read disk_device
 
