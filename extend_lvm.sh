@@ -3,8 +3,13 @@
 echo -n "请输入需要扩展逻辑卷的裸磁盘（如/dev/nvme0n1）： "
 read disk_device
 
-echo -n "请输入卷组名："
+vgscan
+echo -n "请输入卷组名(默认vgubuntu)："
 read vgname
+
+if [[ -z $vgname ]];then
+        vgname=vgubuntu
+fi
 
 echo "要操作的磁盘名：$disk_device"
 echo "卷组名: $vgname"
