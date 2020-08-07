@@ -2,17 +2,27 @@
 # 用root执行次脚本
 # 设置免密登录
 
+# 免密登录的user，同时也是后面lotus_data所有者
+# cn：y or n， 代表服务器是否在国内
+user=$1
+cn=$2
+
 logon_user=$(whoami)
 if [[ logon_user != root ]];then
     echo "请用root执行此脚本"
     exit 1
 fi
 
-# 免密登录的user，同时也是后面lotus_data所有者
+
+if [[ -z $1 ]];then
 echo -n "请输入要设置免密登录的用户名："
 read user
+fi
+
+if [[ -z $2 ]];then
 echo -n "服务器是否位于国内:(y/n): "
 read cn
+fi
 
 echo "设置免密登录"
 echo "$user ALL = (root) NOPASSWD:ALL" | tee /etc/sudoers.d/$user
