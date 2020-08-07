@@ -17,6 +17,8 @@ parted -s $disk_device toggle 1 lvm
 
 pvcreate ${disk_divice}p1 -y
 vgextend $vgname ${disk_device}p1
-lvextend -l +457854 /dev/$vgname/root
+
+free_pe=$(vgdisplay|grep Free|awk '{print $5}')
+lvextend -l +$free_pe /dev/$vgname/root
 resize2fs -p /dev/$vgname/root
 fi
