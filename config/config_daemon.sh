@@ -1,10 +1,12 @@
 #!/bin/bash
 
-ip=$1
+source /etc/filecoin-mining.config
+
+ip=$daemon_ip
 port=1234
 
-
 lotus daemon stop
+
 cd $LOTUS_PATH
 
 if [ -z $ip ];then
