@@ -2,11 +2,7 @@
 user=$1
 host=$2
 # choose: 1 for lotus api, 2 for miner api(default)
-choose=$3
-
-if [ -z $3 ];then
-choose=2
-fi
+choose=${3:-2}
 
 echo $choose
 
