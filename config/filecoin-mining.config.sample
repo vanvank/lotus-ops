@@ -1,26 +1,22 @@
-# cat filecoin-mining.config |grep miner_login_name|grep -v ^#|awk -F: '{print $2}'
-
-
 # common
-branch:ntwk-calibration
+branch=ntwk-calibration
 
 # daemon
-daemon_ip:192.168.11.102
-daemon_login_name:xl
-# daemon_ip:192.168.0.30
-# daemon_login_name:muse-01
+daemon_ip=192.168.11.102
+daemon_login_name=xl
+# daemon_ip=192.168.0.30
+# daemon_login_name=muse-01
 
 # miner
-miner_internal_ip:192.168.11.48
-miner_public_ip:183.238.69.213
-miner_login_name:psdz
+miner_internal_ip=192.168.11.48
+miner_public_ip=183.238.69.213
+miner_login_name=psdz
 
 # miner-hk
-# miner_internal_ip:192.168.0.30
-# miner_public_ip:65.181.71.9
-# miner_login_name:muse-01
+# miner_internal_ip=192.168.0.30
+# miner_public_ip=65.181.71.9
+# miner_login_name=muse-01
 
-miner_libp2p_local_port:5472
-miner_libp2p_public_port:5472
-
+miner_libp2p_local_port=5472
+miner_libp2p_public_port=5472
 
