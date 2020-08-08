@@ -2,7 +2,7 @@
 # count num of sectors  and total size of dir:/lotus_data/tmp/
 
 #set -x
-max_job=1
+
 bench_tmp=`ls /lotus_data/tmp/|grep bench`
 cache_dir="/lotus_data/tmp/$bench_tmp/cache/"
 worker_dir="/lotus_data/tmp/$bench_tmp"
