@@ -3,7 +3,7 @@
 
 # root用户执行脚本
 logon_user=$(whoami)
-if [[ logon_user != root ]];then
+if [[ $logon_user != root ]];then
     echo "请用root执行此脚本"
     exit 1
 fi
