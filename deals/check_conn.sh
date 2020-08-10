@@ -14,7 +14,7 @@ lotus state miner-info $miner_id
 
 echo -n "链上是否已经设置了multi address：（y/n）:"
 read is_set
-if [[ is_set == n ]];then
+if [[ $is_set == n ]];then
     echo -n "请输入你的公网ip： "
     read public_ip
     echo -n "请输入你的libp2p端口号： "
