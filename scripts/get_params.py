@@ -5,7 +5,7 @@ import re
 
 
 def get_v28_list():
-    url="https://proofs.filecoin.io"
+    url = "https://proofs.filecoin.io"
     response = urllib.request.urlopen(url)
     html = response.read().decode()
     pattern = '<a href="/(.*)">'
