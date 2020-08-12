@@ -10,8 +10,7 @@ def get_v28_list():
     html = response.read().decode()
     pattern = '<a href="/(.*)">'
     v28 = re.findall(pattern,html)
-    v28 = v28[1:]
-    return v28
+    return v28[1:]
 
 def main():
     ipfs_hash = "QmQG9NGWDUMb2WbAiGWkhT1WyZzSaYQQZBUgBxSbRXoqTt"
