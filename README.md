@@ -15,7 +15,7 @@ chmod u+x *.sh
 cd ~/lotus/cmd/lotus-bench/
 go build .
 cd ~
-nohup ~/lotus/cmd/lotus-bench/lotus-bench sealing --sector-size 32GiB --storage-dir=/lotus_data/tmp > bench.log &
+nohup ~/lotus/cmd/lotus-bench/lotus-bench sealing --skip-unseal --sector-size 32GiB --storage-dir=/lotus_data/tmp > bench.log &
 ```
 
 
