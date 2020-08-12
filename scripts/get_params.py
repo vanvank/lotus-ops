@@ -12,10 +12,10 @@ def get_v28_list():
     v28 = re.findall(pattern,html)
     return v28[1:]
 
+
 def main():
     ipfs_hash = "QmQG9NGWDUMb2WbAiGWkhT1WyZzSaYQQZBUgBxSbRXoqTt"
-    v28 = get_v28_list()
-    for para in v28:
+    for para in get_v28_list():
         cmd = 'ipfs get %s/%s' % (ipfs_hash, para)
         subprocess.Popen(cmd, shell=True)
 
