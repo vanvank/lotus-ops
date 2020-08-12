@@ -6,6 +6,7 @@
 # cn：y or n， 代表服务器是否在国内
 user=$1
 cn=$2
+gpu=$3
 
 logon_user=$(whoami)
 if [[ $logon_user != root ]];then
@@ -22,6 +23,11 @@ fi
 if [[ -z $2 ]];then
 echo -n "服务器是否位于国内:(y/n): "
 read cn
+fi
+
+if [[ -z $3 ]];then
+echo -n "是否有gpu,启用gpu做p2 :(y/n): "
+read gpu
 fi
 
 echo "设置免密登录"
@@ -81,7 +87,6 @@ echo 'export WORKER_PATH=/lotus_data/.lotusworker' >> /etc/profile
 sed -i '/LOTUS_WORKER_PATH/d' /etc/profile
 echo 'export LOTUS_WORKER_PATH=/lotus_data/.lotusworker' >> /etc/profile
 
-
 if [[ $cn == 'y' ]]
 then
         sed -i '/GOPROXY/d' /etc/profile
@@ -93,6 +98,13 @@ else
         sed -i '/IPFS_GATEWAY/d' /etc/profile
 fi
 
+if [[ $gpu == "y" ]];then
+    sed -i '/FIL_PROOFS_USE_GPU_TREE_BUILDER/d' /etc/profile
+    echo 'export FIL_PROOFS_USE_GPU_TREE_BUILDER=1' >> /etc/profile
+
+    sed -i '/FIL_PROOFS_USE_GPU_COLUMN_BUILDER/d' /etc/profile
+    echo 'export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1' >> /etc/profile
+fi
 
 # install ulimit.
 echo "install ulimit"
