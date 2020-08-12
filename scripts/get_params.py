@@ -10,10 +10,7 @@ def get_v28_list():
     html = response.read().decode()
     pattern = '<a href="/(.*)">'
     v28 = re.findall(pattern,html)
-    #print(v28)
     v28 = v28[1:]
-    #print(v28)
-    #print(v28.__len__())
     return v28
 
 def main():
@@ -21,7 +18,6 @@ def main():
     v28 = get_v28_list()
     for para in v28:
         cmd = 'ipfs get %s/%s' % (ipfs_hash, para)
-        #print(cmd)
         subprocess.Popen(cmd, shell=True)
 
 
