@@ -35,4 +35,7 @@ echo $net_peers
 if [[ $net_peers -lt 3 ]];then
     echo "连接数太少，尝试连接bootstrap"
     ./miner_net_con.sh
+    sleep 3
+    echo -n "现在的peers数目是："
+    lotus-miner net peers|wc -l
 fi
