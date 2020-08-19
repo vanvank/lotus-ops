@@ -7,6 +7,7 @@
 user=$1
 cn=$2
 gpu=$3
+swapfile=$4
 
 logon_user=$(whoami)
 if [[ $logon_user != root ]];then
@@ -28,6 +29,11 @@ fi
 if [[ -z $3 ]];then
 echo -n "是否有gpu,启用gpu做p2 :(y/n): "
 read gpu
+fi
+
+if [[ -z $4 ]];then
+echo -n "swap file的位置在哪里（默认是/swapfile）: "
+read swap_file
 fi
 
 echo "设置免密登录"
@@ -90,7 +96,7 @@ echo 'export LOTUS_WORKER_PATH=/lotus_data/.lotusworker' >> /etc/profile
 if [[ $cn == 'y' ]]
 then
         sed -i '/GOPROXY/d' /etc/profile
-        echo 'export GOPROXY=https://mirrors.aliyun.com/goproxy/' >> /etc/profile
+        echo 'export GOPROXY=https://goproxy.cn' >> /etc/profile
         sed -i '/IPFS_GATEWAY/d' /etc/profile
         echo  'export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"' >> /etc/profile
 else
@@ -119,7 +125,11 @@ echo "root soft nofile 1048576" >> /etc/security/limits.conf
 SWAPSIZE=`swapon --show | awk 'NR==2 {print $3}'`
 if [ "$SWAPSIZE" != "128G" ]; then
   OLDSWAPFILE=`swapon --show | awk 'NR==2 {print $1}'`
-  NEWSWAPFILE="/swapfile"
+  if [ -z $swap_file ];then
+      NEWSWAPFILE="/swapfile"
+  esle
+      NEWSWAPFILE=$swap_file
+  fi
   if [ -n "$OLDSWAPFILE" ]; then
     swapoff -v $OLDSWAPFILE && \
     rm $OLDSWAPFILE && \
