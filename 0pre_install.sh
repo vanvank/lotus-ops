@@ -127,7 +127,7 @@ if [ "$SWAPSIZE" != "128G" ]; then
   OLDSWAPFILE=`swapon --show | awk 'NR==2 {print $1}'`
   if [ -z $swap_file ];then
       NEWSWAPFILE="/swapfile"
-  esle
+  else
       NEWSWAPFILE=$swap_file
   fi
   if [ -n "$OLDSWAPFILE" ]; then
