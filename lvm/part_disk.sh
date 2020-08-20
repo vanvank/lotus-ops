@@ -1,11 +1,19 @@
 #!/bin/bash
-# 
-nvme_disk=/dev/$1
-dir=/nvme
+#
+set -x
+disk=$1
+echo $1 |grep nvme
+if [ $? == 0 ];then
+    dir=/nvme
+    partition=$1"p1"
+else
+    dir=/notnvme
+    partition=$1"1"
+fi
 
-parted -s /dev/$1 mklabel gpt
-parted -s /dev/$1 mkpart primary ext4 1 100%
-mkdir /nvme
-mkfs.ext4 $nvme_disk"p1" && \
-mount $nvme_disk"p1" $dir
-echo "$nvme_disk $dir  ext4 defaults 0 0" >> /etc/fstab
+parted -s $disk mklabel gpt
+parted -s $disk  mkpart primary ext4 1 100%
+mkdir $dir
+mkfs.ext4 $partition && \
+mount $partition $dir
+echo "$partition $dir  ext4 defaults 0 0" >> /etc/fstab
