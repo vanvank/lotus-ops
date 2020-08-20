@@ -42,7 +42,7 @@ chmod 0440 /etc/sudoers.d/$user
 
 # 加入跳板机
 apt update
-apt install python vim -y
+apt install python vim git numactl -y
 echo "加入跳板机"
 if [ ! -f /root/.ssh/id_rsa ]
 then
