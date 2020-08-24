@@ -8,6 +8,7 @@ user=$1
 cn=$2
 gpu=$3
 swapfile=$4
+machine_name=$5
 
 logon_user=$(whoami)
 if [[ $logon_user != root ]];then
@@ -35,6 +36,13 @@ if [[ -z $4 ]];then
 echo -n "swap file的位置在哪里（默认是/swapfile）: "
 read swap_file
 fi
+
+if [[ -z $5 ]];then
+echo -n "设置机器的主机名: "
+read machine_name
+fi
+
+hostnamectl set-hostname $machine_name
 
 echo "设置免密登录"
 echo "$user ALL = (root) NOPASSWD:ALL" | tee /etc/sudoers.d/$user
