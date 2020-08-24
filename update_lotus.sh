@@ -1,6 +1,6 @@
 #!/bin/bash
 # user
-branch=ntwk-calibration
+branch=$1
 if [ -z $branch ];then
 branch=master
 fi
