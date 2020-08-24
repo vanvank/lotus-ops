@@ -180,3 +180,7 @@ if [ $NEEDGPU -ne 0 ]; then
   ubuntu-drivers autoinstall
   echo "reboot to make the GPU to take effect!"
 fi
+
+chown -R $user:$user /opt/lotus-ops
+
+
