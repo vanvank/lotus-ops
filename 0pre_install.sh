@@ -38,11 +38,18 @@ read swap_file
 fi
 
 if [[ -z $5 ]];then
-echo -n "设置机器的主机名: "
+echo -n "设置机器的主机名,不设置请直接回车: "
 read machine_name
 fi
 
+if [[ -n $machine_name ]];then
+echo "主机名将设置为 $machine_name"
+sleep 2
 hostnamectl set-hostname $machine_name
+else
+echo "主机名未变更"
+sleep 2
+fi
 
 echo "设置免密登录"
 echo "$user ALL = (root) NOPASSWD:ALL" | tee /etc/sudoers.d/$user
