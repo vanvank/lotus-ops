@@ -1,4 +1,9 @@
+#1 分区，toggle lvm
+#2 pvcreate
+#3 vgcreate
+#4 lvcreate
 lvcreate -i 2 -I 64 -l 3662824 -n stripe_lv vg0
+mkfs.ext4 /dev/vg0/stripe_lv
 
 
 
