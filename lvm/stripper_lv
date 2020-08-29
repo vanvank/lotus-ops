@@ -1,0 +1,15 @@
+lvcreate -i 2 -I 64 -l 3662824 -n stripe_lv vg0
+
+
+
+#https://blog.csdn.net/yanggd1987/article/details/48678363
+#https://blog.51cto.com/molinux/550190
+
+# -i 指定跨PV的个数为2 
+# -I 指定条带单元的大小为64KB 
+
+#-i:此处写lv用到的pv的数量，不能超过所在vg的pv数量，一般设置与vg的pv个数相同
+#-I:条带单元大小，单位Kb
+#-L:lv的大小，默认为Mb,可带单位G,M,K
+#-l:小写L，分配给lv的LE个数，对应于VG中的PE，在上条vgdisplay的输出中可看到VG中一共有1533个PE。
+#-n:自定义lv的名字，默认从lvol0开始往下排。
