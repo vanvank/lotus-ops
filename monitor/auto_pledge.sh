@@ -1,5 +1,7 @@
 #!/bin/bash
 # nohup ./auto_pledge.sh >> pledge.log &
+# 脚本所在目录创建sector_num.txt， 这里写上集群满负荷时所处理的sectors数。
+# 通过修改sector_num.txt中定义的数量，动态调整集群负载，从而找到一个平衡点。
 set -x
 
 while true
