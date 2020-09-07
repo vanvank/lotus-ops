@@ -16,7 +16,7 @@ gpu="false"
 source /etc/profile
 rm -rf /lotus_data/.lotus*
 ./get_api_token.sh $miner_login_name $miner_internal_ip && \
-./update_lotus.sh $branch && \
+#./update_lotus.sh $branch && \
 ./gen_start_worker.py $pre1 $pre2 $commit $gpu
 cd ~
 ./start_worker.sh
