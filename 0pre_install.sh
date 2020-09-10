@@ -68,63 +68,63 @@ sed -i '/root@jumpserver/d' /root/.ssh/authorized_keys
 echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQChX8CES8CFN7QZvdONS517NcJxJZhUQSdLUfeR/dyp1qF5UApOyeDaVyVQID9wpLOKBu62VV21X1FKLt3DS3CTst8aLjXdae+9VshfS4yjWQCQlwodacgBtFqToWwc2if1MlnYEFl9e5dhNnxrFaUwrZSZXI1gA5DuCOxMRRvWHaWwXSfoPpnK4+18DHOmPDd4goVIexbshqWcpohIhmvTOmxlujo4nsEslwBoAVQksJqUnjsn13ALITtltlXO2dWmDtMf7qp/quH3QQEoXRpCzsUZbMBngfUM7DrqsiR7vlZr1xz8gVuVaE6RGoMO93r5Ai05ZeB0qlbNCFUGHJEx root@jumpserver' >>  /root/.ssh/authorized_keys
 chmod 600 /root/.ssh/authorized_keys
 
-# 设置/etc/profile
-echo "设置/etc/profile"
-sed -i '/EDITOR/d' /etc/profile
-echo 'export EDITOR=vim' >> /etc/profile
+# 设置/etc/bashrc
+echo "设置/etc/bashrc"
+sed -i '/EDITOR/d' /etc/bashrc
+echo 'export EDITOR=vim' >> /etc/bashrc
 
-sed -i '/FIL_PROOFS_PARAMETER_CACHE/d' /etc/profile
-echo 'export FIL_PROOFS_PARAMETER_CACHE=/lotus_data/filecoin-proof-parameters' >> /etc/profile
+sed -i '/FIL_PROOFS_PARAMETER_CACHE/d' /etc/bashrc
+echo 'export FIL_PROOFS_PARAMETER_CACHE=/lotus_data/filecoin-proof-parameters' >> /etc/bashrc
 
-sed -i '/RUST_LOG/d' /etc/profile
-echo 'export RUST_LOG=info' >> /etc/profile
+sed -i '/RUST_LOG/d' /etc/bashrc
+echo 'export RUST_LOG=info' >> /etc/bashrc
 
-sed -i '/FIL_PROOFS_MAXIMIZE_CACHING/d' /etc/profile
-echo 'export FIL_PROOFS_MAXIMIZE_CACHING=1' >> /etc/profile
+sed -i '/FIL_PROOFS_MAXIMIZE_CACHING/d' /etc/bashrc
+echo 'export FIL_PROOFS_MAXIMIZE_CACHING=1' >> /etc/bashrc
 
 ####  LOTUS_STORAGE_PATH  will remove
-sed -i '/LOTUS_STORAGE_PATH/d' /etc/profile
-echo 'export LOTUS_STORAGE_PATH=/lotus_data/.lotusstorage' >> /etc/profile
+sed -i '/LOTUS_STORAGE_PATH/d' /etc/bashrc
+echo 'export LOTUS_STORAGE_PATH=/lotus_data/.lotusstorage' >> /etc/bashrc
 
-sed -i '/LOTUS_MINER_PATH/d' /etc/profile
-echo 'export LOTUS_MINER_PATH=/lotus_data/.lotusstorage' >> /etc/profile
+sed -i '/LOTUS_MINER_PATH/d' /etc/bashrc
+echo 'export LOTUS_MINER_PATH=/lotus_data/.lotusstorage' >> /etc/bashrc
 
-sed -i '/RUSTFLAGS/d' /etc/profile
-echo 'export RUSTFLAGS="-C target-cpu=native -g"' >> /etc/profile
+sed -i '/RUSTFLAGS/d' /etc/bashrc
+echo 'export RUSTFLAGS="-C target-cpu=native -g"' >> /etc/bashrc
 
-sed -i '/FFI_BUILD_FROM_SOURCE/d' /etc/profile
-echo 'export FFI_BUILD_FROM_SOURCE=1' >> /etc/profile
+sed -i '/FFI_BUILD_FROM_SOURCE/d' /etc/bashrc
+echo 'export FFI_BUILD_FROM_SOURCE=1' >> /etc/bashrc
 
-sed -i '/TMPDIR/d' /etc/profile
-echo 'export TMPDIR=/lotus_data/tmp' >> /etc/profile
+sed -i '/TMPDIR/d' /etc/bashrc
+echo 'export TMPDIR=/lotus_data/tmp' >> /etc/bashrc
 
-sed -i '/LOTUS_PATH/d' /etc/profile
-echo 'export LOTUS_PATH=/lotus_data/.lotus' >> /etc/profile
+sed -i '/LOTUS_PATH/d' /etc/bashrc
+echo 'export LOTUS_PATH=/lotus_data/.lotus' >> /etc/bashrc
 
 ####  WORKER_PATH will remove 
-sed -i '/WORKER_PATH/d' /etc/profile
-echo 'export WORKER_PATH=/lotus_data/.lotusworker' >> /etc/profile
+sed -i '/WORKER_PATH/d' /etc/bashrc
+echo 'export WORKER_PATH=/lotus_data/.lotusworker' >> /etc/bashrc
 
-sed -i '/LOTUS_WORKER_PATH/d' /etc/profile
-echo 'export LOTUS_WORKER_PATH=/lotus_data/.lotusworker' >> /etc/profile
+sed -i '/LOTUS_WORKER_PATH/d' /etc/bashrc
+echo 'export LOTUS_WORKER_PATH=/lotus_data/.lotusworker' >> /etc/bashrc
 
 if [[ $cn == 'y' ]]
 then
-        sed -i '/GOPROXY/d' /etc/profile
-        echo 'export GOPROXY=https://goproxy.cn' >> /etc/profile
-        sed -i '/IPFS_GATEWAY/d' /etc/profile
-        echo  'export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"' >> /etc/profile
+        sed -i '/GOPROXY/d' /etc/bashrc
+        echo 'export GOPROXY=https://goproxy.cn' >> /etc/bashrc
+        sed -i '/IPFS_GATEWAY/d' /etc/bashrc
+        echo  'export IPFS_GATEWAY="https://proof-parameters.s3.cn-south-1.jdcloud-oss.com/ipfs/"' >> /etc/bashrc
 else
-        sed -i '/GOPROXY/d' /etc/profile
-        sed -i '/IPFS_GATEWAY/d' /etc/profile
+        sed -i '/GOPROXY/d' /etc/bashrc
+        sed -i '/IPFS_GATEWAY/d' /etc/bashrc
 fi
 
 if [[ $gpu == "y" ]];then
-    sed -i '/FIL_PROOFS_USE_GPU_TREE_BUILDER/d' /etc/profile
-    echo 'export FIL_PROOFS_USE_GPU_TREE_BUILDER=1' >> /etc/profile
+    sed -i '/FIL_PROOFS_USE_GPU_TREE_BUILDER/d' /etc/bashrc
+    echo 'export FIL_PROOFS_USE_GPU_TREE_BUILDER=1' >> /etc/bashrc
 
-    sed -i '/FIL_PROOFS_USE_GPU_COLUMN_BUILDER/d' /etc/profile
-    echo 'export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1' >> /etc/profile
+    sed -i '/FIL_PROOFS_USE_GPU_COLUMN_BUILDER/d' /etc/bashrc
+    echo 'export FIL_PROOFS_USE_GPU_COLUMN_BUILDER=1' >> /etc/bashrc
 fi
 
 # install ulimit.
