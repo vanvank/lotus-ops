@@ -1,5 +1,6 @@
 #!/bin/bash
 set -x
+watllet_address="XXXXXX"
 t=0
 inter=`cat inter.txt`
 while true
@@ -19,7 +20,7 @@ then
         sleep 15
         t=$(($t+1))
 else
-        lotus mpool replace --auto f3rislef2hebz4qt6rsmcrentgtn66jelxi2r6t4i7oot4gknwsfihoasfz24kiwqd64k257xldbftgwxnlnba $nonce
+        lotus mpool replace --auto $wallet_address $nonce
         date
         echo $nonce > old_nonce.txt
         t=0
@@ -28,7 +29,7 @@ fi
 echo "t is:$t"
 if [ $t -ge 120 ]
 then
-        lotus mpool replace --auto f3rislef2hebz4qt6rsmcrentgtn66jelxi2r6t4i7oot4gknwsfihoasfz24kiwqd64k257xldbftgwxnlnba $nonce
+        lotus mpool replace --auto $wallet_address $nonce
         date
         sleep $inter
         t=0
