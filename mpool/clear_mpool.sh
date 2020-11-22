@@ -2,10 +2,11 @@
 set -x
 watllet_address="XXXXXX"
 t=0
-inter=`cat inter.txt`
+
 while true
 do
 date
+inter=`cat inter.txt`
 old_nonce=`cat old_nonce.txt`
 count=`lotus mpool pending --local|grep Nonce|wc -l`
 if [ $count -lt 1 ] || [ -z $count ];then
