@@ -12,7 +12,6 @@ def gen_config(ip,port,filename):
         f.writelines("""---
 servers:
     - url: "http://%s:%s/"  # Server url
-    #cert: "/home/xl/sbw1023/cert.pem"
       token: ""  # Keep empty""" %(ip,port))
 
 if __name__=="__main__":
