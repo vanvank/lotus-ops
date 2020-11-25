@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-#remote_ip="113.125.194.17"
-#remote_port=["59062","59060"]
 remote_ip=input("请输入远程ip：")
 remote_port=["a","b"]
 remote_port[0]=input("请输入第一个port：")
