@@ -23,6 +23,8 @@ export BELLMAN_CUSTOM_GPU="GeForce GTX 1660 SUPER:1408"
 
 export BELLMAN_CUSTOM_GPU="GeForce GTX 2060 SUPER:2176"
 
+export BELLMAN_CUSTOM_GPU="GeForce RTX 3090:10496"
+
  ntwk-calibration
 
  master
