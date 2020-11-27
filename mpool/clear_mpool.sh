@@ -9,7 +9,7 @@ date
 inter=`cat inter.txt`
 old_nonce=`cat old_nonce.txt`
 count=`lotus mpool pending --local|grep Nonce|wc -l`
-if [ $count -lt 1 ] || [ -z $count ];then
+if [ $count -lt 9 ] || [ -z $count ];then
         echo "没有消息卡住"
         date
         sleep 30
