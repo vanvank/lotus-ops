@@ -6,7 +6,7 @@ t=0
 while true
 do
 date
-inter=`cat inter.txt`
+inter=5
 old_nonce=`cat old_nonce.txt`
 count=`lotus mpool pending --local|grep Nonce|wc -l`
 if [ $count -lt 1 ] || [ -z $count ];then
