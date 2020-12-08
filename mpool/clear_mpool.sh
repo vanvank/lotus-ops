@@ -1,13 +1,13 @@
 #!/bin/bash
 set -x
-wallet_address="XXXXXX"
 t=0
 echo "1" > old_nonce.txt
-
+wallet=f3rislef2hebz4qt6rsmcrentgtn66jelxi2r6t4i7oot4gknwsfihoasfz24kiwqd64k257xldbftgwxnlnba
 while true
 do
 date
-inter=5
+#inter=`cat inter.txt`
+inter=15
 old_nonce=`cat old_nonce.txt`
 count=`lotus mpool pending --local|grep Nonce|wc -l`
 if [ $count -lt 1 ] || [ -z $count ];then
@@ -16,29 +16,26 @@ if [ $count -lt 1 ] || [ -z $count ];then
         sleep 30
         continue
 fi
+#if [ $count -lt 40 ];then
+#       break
+#fi
+
 nonce=`lotus mpool pending --local|grep Nonce|head -n1|awk '{print $2}'|tr -d ,`
 if [ $nonce == $old_nonce  ]
 then
-        sleep 15
-        t=$(($t+1))
+        sleep 5
 else
-        lotus mpool replace --auto $wallet_address $nonce
+        premium=$(./mpool.py $wallet)
+        echo $premium
+        #lotus mpool replace --auto $wallet $nonce
+        lotus mpool replace --gas-feecap 5200000000 --gas-premium $premium --gas-limit 76104935 $wallet  $nonce
         if [ $? == 0 ];then
             echo $nonce > old_nonce.txt
             date
-            t=0
             sleep $inter
         else
-                echo "请调整premium的值"
-                break
+                sleep 3
+                continue
         fi
-fi
-echo "t is:$t"
-if [ $t -ge 120 ]
-then
-        lotus mpool replace --auto $wallet_address $nonce
-        date
-        sleep $inter
-        t=0
 fi
 done
