@@ -1,7 +1,8 @@
 #!/bin/bash
 set -x
-./create_new_vg.sh /dev/nvme0n1
-./create_new_vg.sh /dev/nvme1n1
+apt install lvm2 -y
+./create_new_vg.sh /dev/nvme0n1 && \
+./create_new_vg.sh /dev/nvme1n1 && \
 vgcreate vg0 /dev/nvme0n1p1 /dev/nvme1n1p1
 lvcreate -i 2 -I 64 -l 953862 -n stripe_lv vg0
 mkfs.ext4 /dev/vg0/stripe_lv
