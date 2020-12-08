@@ -1,6 +1,6 @@
 #!/bin/bash
 set -x
-watllet_address="XXXXXX"
+wallet_address="XXXXXX"
 t=0
 echo "1" > old_nonce.txt
 
