@@ -1,8 +1,9 @@
 #!/bin/bash
 set -x
-t=0
 echo "1" > old_nonce.txt
 wallet=f3rislef2hebz4qt6rsmcrentgtn66jelxi2r6t4i7oot4gknwsfihoasfz24kiwqd64k257xldbftgwxnlnba
+
+
 while true
 do
 date
