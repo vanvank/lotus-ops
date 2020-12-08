@@ -2,6 +2,7 @@
 set -x
 watllet_address="XXXXXX"
 t=0
+echo "1" > old_nonce.txt
 
 while true
 do
@@ -22,10 +23,15 @@ then
         t=$(($t+1))
 else
         lotus mpool replace --auto $wallet_address $nonce
-        date
-        echo $nonce > old_nonce.txt
-        t=0
-        sleep $inter
+        if [ $? == 0 ];then
+            echo $nonce > old_nonce.txt
+            date
+            t=0
+            sleep $inter
+        else
+                echo "请调整premium的值"
+                break
+        fi
 fi
 echo "t is:$t"
 if [ $t -ge 120 ]
