@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # install go
-wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-export PATH=$PATH:/usr/local/go/bin
-sudo sed -i '/\/usr\/local\/go\/bin/d' /etc/profile
-sudo bash -c "echo 'export PATH=\$PATH:/usr/local/go/bin' >> /etc/profile"
+#wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+#export PATH=$PATH:/usr/local/go/bin
+#sudo sed -i '/\/usr\/local\/go\/bin/d' /etc/profile
+#sudo bash -c "echo 'export PATH=\$PATH:/usr/local/go/bin' >> /etc/profile"
 
 # install deps
 sudo apt update && \
@@ -18,4 +18,4 @@ source $HOME/.cargo/env
 source /etc/profile
 
 # pull code and make lotus
-./update_lotus.sh
+#./update_lotus.sh
