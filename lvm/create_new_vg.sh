@@ -17,5 +17,5 @@ parted -s $disk mklabel gpt
 parted -s $disk  mkpart primary ext4 1 100%
 parted -s $disk toggle 1 lvm
 
-pvcreate $partition -y
-vgcreate $vgname $partition
+pvcreate $partition -yff
+#vgcreate $vgname $partition
