@@ -8,4 +8,4 @@ mkfs.ext4 /dev/vg0/stripe_lv
 mkdir /lotus_data
 mount  /dev/vg0/stripe_lv /lotus_data
 chown -R xl:xl /lotus_data/
-echo "/dev/vg0/stripe_lv /lotus_data/ ext4 defaults 0" >> /etc/fstab
+echo "/dev/vg0/stripe_lv /lotus_data/ ext4 defaults 0 0" >> /etc/fstab
