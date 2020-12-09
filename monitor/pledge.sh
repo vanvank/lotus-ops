@@ -17,6 +17,7 @@ if [ $need_ap_count -gt 0 ];then
   for i in $(seq 1 $need_ap_count);
       do
       echo "pledge"
+      date
       lotus-miner sectors pledge
       sleep 10
   done
