@@ -1,0 +1,19 @@
+--
+- hosts: AMD3970
+  tasks:
+  - name: Copy start files to worker
+    copy:
+      src: /root/ansible_scripts/files/start3970.sh
+      dest: /root/start0.sh
+      mode: 0755
+  - name: install supervisor
+    apt:
+      name: supervisor
+  - name: Copy supervisor conf
+    copy:
+      src: /root/ansible_scripts/files/worker.conf.3970
+      dest: /etc/supervisor/conf.d/worker.conf
+  - name: restart supervisor
+    systemd:
+      name: supervisor
+      state: restarted
