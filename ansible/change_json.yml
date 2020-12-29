@@ -1,0 +1,12 @@
+---
+- hosts: AMD7302
+  tasks:
+  - name: change worker0 json
+    copy:
+      src: /root/ansible_scripts/files/myscheduler.json-worker0-7302
+      dest: /filecoin/dgtest/lotusworker0/myscheduler.json
+      mode: 0644
+  - name: change worker1 json
+    copy:
+      src: /root/ansible_scripts/files/myscheduler.json-worker1-7302
+      dest: /filecoin/dgtest/lotusworker1/myscheduler.json
