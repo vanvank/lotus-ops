@@ -19,7 +19,9 @@ nohup ~/lotus/cmd/lotus-bench/lotus-bench sealing --skip-unseal --sector-size 32
 ```
 
 export BELLMAN_CUSTOM_GPU="GeForce GTX 1660 SUPER:1408"
+
 export BELLMAN_CUSTOM_GPU="GeForce GTX 2060 SUPER:2176"
+
 export BELLMAN_CUSTOM_GPU="GeForce RTX 3090:10496"
 
 https://calibration.spacerace.filecoin.io/
