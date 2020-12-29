@@ -1,0 +1,16 @@
+{
+  "WorkerName": "",
+  "AddPieceMax": 5,
+  "PreCommit1Max": 6,
+  "PreCommit2Max": 1,
+  "Commit2Max": 0,
+  "DiskHoldMax": 0,
+  "APDiskHoldMax": 0,
+  "ForceP1FromLocalAP": false,
+  "ForceP2FromLocalP1": true,
+  "ForceC2FromLocalP2": false,
+  "IsPlanOffline": false,
+  "AllowP2C2Parallel": false,
+  "IgnoreOutOfSpace": false,
+  "AutoPledgeDiff": 0
+}
