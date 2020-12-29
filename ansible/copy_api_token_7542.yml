@@ -1,0 +1,45 @@
+--
+- hosts: AMD7542
+  tasks:
+  - name: Create /mnt/md0/dgtest/lotusstorage
+    file:
+      path: /mnt/md0/dgtest/lotusstorage
+      state: directory
+      mode: '0755'
+  - name: Create /mnt/md0/dgtest/tmp/gpu1
+    file:
+      path: /mnt/md0/dgtest/tmp/gpu1
+      state: directory
+      mode: '0755'
+  - name: Create /mnt/md0/dgtest/tmp/gpu0
+    file:
+      path: /mnt/md0/dgtest/tmp/gpu0
+      state: directory
+      mode: '0755'
+  - name: copy api to  /mnt/md0/dgtest/lotusstorage
+    copy:
+      src: /root/ansible_scripts/files/api
+      dest: /mnt/md0/dgtest/lotusstorage/api
+  - name: copy token
+    copy:
+      src: /root/ansible_scripts/files/token
+      dest: /mnt/md0/dgtest/lotusstorage/token
+  - name: Copy the bin to worker
+    copy:
+      src: /root/ansible_scripts/files/lotus-worker-7542
+      dest: /usr/local/bin/lotus-worker
+      mode: 0755
+  - name: Copy start files to worker
+    copy:
+      src: /root/ansible_scripts/files/start0.sh
+      dest: /root/start0.sh
+      mode: 0755
+  - name: Copy start files to worker
+  copy:
+      src: /root/ansible_scripts/files/start1.sh
+      dest: /root/start1.sh
+      mode: 0755
+  - name: Copy supervisor conf
+    copy:
+      src: /root/ansible_scripts/files/worker.conf
+      dest: /etc/supervisor/conf.d/worker.conf
