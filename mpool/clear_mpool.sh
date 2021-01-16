@@ -32,9 +32,11 @@ then
 else
         premium=$(./mpool.py $wallet)
         echo $premium
+        feecap=$(./calc_feecap.py)
+        lotus mpool replace --gas-feecap $feecap --gas-premium $premium $wallet $nonce
         #lotus mpool replace --auto $wallet $nonce
         #lotus mpool replace --gas-feecap 5200000000 --gas-premium $premium --gas-limit 51104935 $wallet  $nonce
-        lotus mpool replace --gas-feecap 5200000000 --gas-premium $premium $wallet  $nonce
+        #lotus mpool replace --gas-feecap 5200000000 --gas-premium $premium $wallet  $nonce
         #lotus mpool replace --gas-feecap 100000000000 --gas-premium $premium $wallet  $nonce
         if [ $? == 0 ];then
             echo $nonce > old_nonce.txt
