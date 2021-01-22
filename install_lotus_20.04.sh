@@ -1,10 +1,12 @@
 #!/bin/bash
 
 # install go
-#wget -c https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-#export PATH=$PATH:/usr/local/go/bin
-#sudo sed -i '/\/usr\/local\/go\/bin/d' /etc/profile
-#sudo bash -c "echo 'export PATH=\$PATH:/usr/local/go/bin' >> /etc/profile"
+go_url=https://dl.google.com/go/go1.15.5.linux-amd64.tar.gz
+wget -c $go_url -O - | sudo tar -xz -C /usr/local
+export PATH=$PATH:/usr/local/go/bin
+sudo sed -i '/\/usr\/local\/go\/bin/d' /etc/profile
+sudo bash -c "echo 'export PATH=\$PATH:/usr/local/go/bin' >> /etc/profile"
+
 
 # install deps
 sudo apt update && \
