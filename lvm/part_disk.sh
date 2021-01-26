@@ -17,3 +17,4 @@ mkdir $dir
 mkfs.ext4 $partition && \
 mount $partition $dir
 echo "$partition $dir  ext4 defaults 0 0" >> /etc/fstab
+chown -R xl:xl $dir
