@@ -3,7 +3,7 @@ num=0
 export CUDA_VISIBLE_DEVICES=$num
 export TMPDIR=/lotus_data/tmp/gpu$num
 export RUST_LOG=info
-#export FIL_PROOFS_USE_MULTICORE_SDR=1
+export FIL_PROOFS_USE_MULTICORE_SDR=1
 if [ ! -d $TMPDIR ]; then
   mkdir -p $TMPDIR
 fi
