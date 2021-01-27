@@ -13,7 +13,7 @@ CUR_IP=`/sbin/ip a | grep "state UP" -A2 | grep "inet [^ /]\+" -o  | grep -o "[0
 worker_dir=/notnvme/lotusworker
 gpu=true
 ip=$CUR_IP
-port=2346
+port=236$num
 
 pre1=true
 pre2=true
