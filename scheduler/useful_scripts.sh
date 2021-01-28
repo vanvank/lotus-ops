@@ -7,4 +7,5 @@ cat miner.log |grep -a "out of space "|awk '{print $8}'|sort -rn|uniq -c
 # 统计worker报disabled的次数
 cat miner.log |grep -a "trySchedMine skipping disabled worker "|awk '{print $9}'|sort -rn|uniq -c
 
-# 
+# 查看某个扇区调度成功的情况
+cat miner.log |grep s-t0XXX-2|grep success
