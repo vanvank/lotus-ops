@@ -15,6 +15,12 @@ b.消息自动疏通
 -------
 worker
 -------
-a.编译
-ansible分类，每种型号机器找一个编译机。
-b.用ansible做好worker的配置管理。用supervisor启动。
+a.编译（ansible分类，每种CPU型号的机器找一个作为编译机。
+b.用ansible做好worker的配置管理。用supervisor启动进程。
+
+
+
+------
+miner
+------
+
