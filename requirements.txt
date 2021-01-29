@@ -12,7 +12,9 @@ lotus节点
 a.监控同步情况
 b.消息自动疏通
 
+-------
 worker
+-------
 a.编译
 ansible分类，每种型号机器找一个编译机。
-b.用ansible做好worker的配置管理。
+b.用ansible做好worker的配置管理。用supervisor启动。
