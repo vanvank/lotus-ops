@@ -24,3 +24,11 @@ b.用ansible做好worker的配置管理。用supervisor启动进程。
 miner
 ------
 
+----------
+zabbix监控
+----------
+
+
+-------
+docker
+-------
