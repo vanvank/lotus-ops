@@ -12,6 +12,8 @@ lotus节点
 a.监控同步情况
 b.消息自动疏通
 
+
+
 -------
 worker
 -------
@@ -23,6 +25,7 @@ b.用ansible做好worker的配置管理。用supervisor启动进程。
 ------
 miner
 ------
+
 
 ----------
 zabbix监控
