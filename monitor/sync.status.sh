@@ -3,13 +3,26 @@
 
 set -x
 source /etc/profile
+source ~/.bashrc
+export PATH=$PATH:/usr/local/bin
 node_name=$HOSTNAME
 status=`lotus sync status|grep Stage|head -n1|awk '{print $2}'`
-is_done=`timeout 5 lotus sync wait|grep Done!`
 diff_count=`lotus sync status|grep diff|head -n1|awk '{print $3}'`
-if [ $status != error ] || [ $is_done == Done! ] || [ $diff_count -lt 6 ] || [ -z $diff_count ]
+timeout 30 lotus sync wait
+if [ $? != 0 ];then
+        sync_not_ok=true
+        t=yes
+fi
+
+if [ $diff_count -gt 5 ] && [ -n $diff_count ]
 then
-        echo "$(date) $node_name sync ok"
-else
-        ./send_msg.sh "$(date) Warning: $node_name sync not ok, diff: $diff_count"
+        sync_not_ok=true
+fi
+
+if [ $status = error ];then
+        sync_not_ok=true
+fi
+
+if [ $sync_not_ok == true ];then
+        ./send_msg.sh "ERROR!!! $(date) $node_name sync not ok, diff: $diff_count, status: $status, timeout: $t"
 fi
