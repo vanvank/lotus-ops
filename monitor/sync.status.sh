@@ -4,6 +4,7 @@
 set -x
 source /etc/profile
 source ~/.bashrc
+sync_not_ok=false
 export PATH=$PATH:/usr/local/bin
 node_name=$HOSTNAME
 status=`lotus sync status|grep Stage|head -n1|awk '{print $2}'`
