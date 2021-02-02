@@ -20,7 +20,7 @@ then
         sync_not_ok=true
 fi
 
-if [ $status = error ];then
+if [ $status == error ];then
         sync_not_ok=true
 fi
 
