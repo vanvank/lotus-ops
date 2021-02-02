@@ -1,4 +1,6 @@
 #!/bin/bash
+####### */10 * * * * cd /opt/lotus-ops/monitor && ./sync.status.sh >  sync.log  2>&1
+
 set -x
 source /etc/profile
 node_name=$HOSTNAME
