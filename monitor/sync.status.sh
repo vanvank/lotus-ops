@@ -1,8 +1,9 @@
 #!/bin/bash
 set -x
-node_name="Guizhou lotus node"
+source /etc/profile
+node_name=$HOSTNAME
 status=`lotus sync status|grep Stage|head -n1|awk '{print $2}'`
-is_done=`lotus sync wait|grep Done!`
+is_done=`timeout 5 lotus sync wait|grep Done!`
 diff_count=`lotus sync status|grep diff|head -n1|awk '{print $3}'`
 if [ $status == complete ] || [ $is_done == Done! ] || [ $diff_count -lt 6 ]
 then
