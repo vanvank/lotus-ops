@@ -1,4 +1,5 @@
 #!/bin/bash
+#####crontab    */10 * * * * bash -c "cd /opt/lotus-ops/monitor && ./sync.status.sh >  sync.log  2>&1"
 set -x
 source /etc/profile
 source ~/.bashrc
