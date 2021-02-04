@@ -55,6 +55,12 @@ echo "设置免密登录"
 echo "$user ALL = (root) NOPASSWD:ALL" | tee /etc/sudoers.d/$user
 chmod 0440 /etc/sudoers.d/$user
 
+# 修改sourcs.list源为阿里的源
+if [[ $cn == 'y' ]];then
+    cp /etc/apt/sources.list /etc/apt/sources.list.bak
+    cp sourcelist.aliyun.ubuntu20.04 /etc/apt/sources.list
+fi
+
 # 加入跳板机
 apt update
 apt install python vim git numactl glances htop -y
