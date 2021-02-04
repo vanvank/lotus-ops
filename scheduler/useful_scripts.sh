@@ -9,3 +9,6 @@ cat miner.log |grep -a "trySchedMine skipping disabled worker "|awk '{print $9}'
 
 # 查看某个扇区调度成功的情况
 cat miner.log |grep s-t0XXX-2|grep success
+
+# 查看一轮调度所用时间
+cat miner.log |grep "trySchedMine SCHED"
