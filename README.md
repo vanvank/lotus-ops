@@ -8,8 +8,10 @@ chmod u+x *.sh
 ```
 
 1. user： root
+
 0pre_install.sh to prepair env for lotus 
 2. user： xl
+
 1install_dep_and_lotus.sh to compile lotus
 
 ## bench
