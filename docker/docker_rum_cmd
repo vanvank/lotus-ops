@@ -1,0 +1,10 @@
+docker run --network host -d  \
+-v /root/dgtest/miner_api:/root/lotusstorage \
+-v /mnt/md0/filecoin-proof-parameters:/root/filecoin-proof-parameters \
+-v /mnt/md0/dgtest/docker/lotusworker64-195-2:/root/lotusworker \
+-v $(pwd)/start.fg.sh:/root/start.fg.sh \
+-v $(pwd)/lotus-worker:/root/lotus-worker \
+-v $(pwd)/rgpu1/filecoin-ffi.yaml:/etc/filecoin-ffi.yaml \
+--name 64-195-2 \
+--hostname 64-195-2 \
+lotus:v1 172.16.6.119 2351
