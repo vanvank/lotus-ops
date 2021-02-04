@@ -11,6 +11,8 @@ lotus节点
 --------
 a.监控同步情况
 b.消息自动疏通
+c.快照定期导出
+nohup lotus chain export --skip-old-msgs --recent-stateroots=900 $(date +%Y-%m-%d-%H%M.car) &
 
 
 
@@ -19,6 +21,7 @@ worker
 -------
 a.编译（ansible分类，每种CPU型号的机器找一个作为编译机。
 b.用ansible做好worker的配置管理。用supervisor启动进程。
+
 
 
 
