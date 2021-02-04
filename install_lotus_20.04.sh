@@ -23,6 +23,7 @@ sudo apt install curl  gcc make git bzr jq pkg-config libhwloc-dev hwloc -y && \
 sudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
 
 cp cargo_config ~/.cargo/config
+
 source $HOME/.cargo/env
 source /etc/profile
 
