@@ -12,3 +12,9 @@ cat miner.log |grep s-t0XXX-2|grep success
 
 # 查看一轮调度所用时间
 cat miner.log |grep "trySchedMine SCHED"
+
+
+
+
+# 找出错误扇区的脚本，找出这些扇区后， 查看扇区日志，占用存储， 随后一般都可以remove掉。
+cat miner.log|grep states_failed|awk '{print $5}'|sort -u|grep -o '(.*)'|tr -d '()'
