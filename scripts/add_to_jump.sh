@@ -1,4 +1,6 @@
 #!/bin/bash
+# 一键执行此脚本
+# curl https://raw.githubusercontent.com/vanvank/lotus-ops/master/scripts/add_to_jump.sh | bash
 
 echo "加入跳板机"
 if [ ! -f /root/.ssh/id_rsa ]
