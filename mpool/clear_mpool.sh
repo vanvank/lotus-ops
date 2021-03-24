@@ -1,9 +1,13 @@
 #!/bin/bash
 set -x
 echo "1" > old_nonce.txt
-wallet=f3rislef2hebz4qt6rsmcrentgtn66jelxi2r6t4i7oot4gknwsfihoasfz24kiwqd64k257xldbftgwxnlnba
+lotus mpool pending --local > pending.txt
+wallet=`cat pending.txt |grep -i From|head -n1|awk '{print $2}'|tr -d '",'`
+#nonces=`lotus mpool pending --local|grep Nonce|head -n 1|awk '{print $2}'|tr -d ,`
+nonce=`cat pending.txt |grep Nonce|head -n 1|awk '{print $2}'|tr -d ,`
+#wallet=f3vu6tn6dcoof5y4psmh2n7tzcsyvjc6d5rf6245cdzzaun33xqpqytpjmyunqyzmk2f5er7bgcraj5wizriwq
 t=0
-trigger=50
+trigger=10
 stuck_max=$trigger
 while true
 do
@@ -23,14 +27,16 @@ else
         stuck_max=1
 fi
 
-nonce=`lotus mpool pending --local|grep Nonce|head -n1|awk '{print $2}'|tr -d ,`
+lotus mpool pending --local > pending.txt
+wallet=`cat pending.txt |grep -i From|head -n1|awk '{print $2}'|tr -d '",'`
+nonce=`cat pending.txt |grep Nonce|head -n 1|awk '{print $2}'|tr -d ,`
 
 if [ $nonce == $old_nonce  ]
 then
         sleep 5
         t=$(($t+5))
 else
-        premium=$(./mpool.py $wallet)
+        premium=$(./mpool.py $wallet $nonce)
         echo $premium
         feecap=$(./calc_feecap.py)
         lotus mpool replace --gas-feecap $feecap --gas-premium $premium $wallet $nonce
@@ -46,10 +52,10 @@ else
         fi
 fi
 echo "t is:$t"
-if [ $t -ge 1200 ]
+if [ $t -ge 600 ]
 then
-        echo "消息超过20分钟没上链，触发2次疏通"
-        premium=$(./mpool.py $wallet)
+        echo "消息超过10分钟没上链，触发2次疏通"
+        premium=$(./mpool.py $wallet $nonce)
         feecap=$(./calc_feecap.py)
         lotus mpool replace --gas-feecap $feecap --gas-premium $premium  $wallet  $nonce
         date
