@@ -1,26 +1,27 @@
 #!/bin/bash
 set -x
+# 自定义变量
+
 echo "1" > old_nonce.txt
 lotus mpool pending --local > pending.txt
 wallet=`cat pending.txt |grep -i From|head -n1|awk '{print $2}'|tr -d '",'`
-#nonces=`lotus mpool pending --local|grep Nonce|head -n 1|awk '{print $2}'|tr -d ,`
 nonce=`cat pending.txt |grep Nonce|head -n 1|awk '{print $2}'|tr -d ,`
-#wallet=f3vu6tn6dcoof5y4psmh2n7tzcsyvjc6d5rf6245cdzzaun33xqpqytpjmyunqyzmk2f5er7bgcraj5wizriwq
 t=0
 trigger=10
 stuck_max=$trigger
+
+
 while true
 do
 date
-#inter=`cat inter.txt`
 inter=15
 old_nonce=`cat old_nonce.txt`
 count=`lotus mpool pending --local|grep Nonce|wc -l`
+
 if [ $count -lt $stuck_max ] || [ -z $count ];then
         echo "没有消息卡住"
         date
         stuck_max=$trigger
-        #break
         sleep 30
         continue
 else
