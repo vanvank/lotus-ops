@@ -2,13 +2,12 @@ from decimal import Decimal
 
 # 8/25 链上收益0.0346/T/天
 current_chain_profit = 0.0346
-
-total_xft = 1024 * 1024
 left_xft = 777310
-sold_xft = total_xft - left_xft
+total_xft = 1024 * 1024
+
 
 # 总共需要补充进池子的FIL数量
-transfer = sold_xft / 1024 * current_chain_profit * 0.4 * 7
+transfer = （total_xft - left_xft） / 1024 * current_chain_profit * 0.4 * 7
 
 # 提高精度，不要显示科学计数，精确到小数点后18个0
 def print_decimal(f):
