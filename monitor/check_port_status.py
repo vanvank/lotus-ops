@@ -40,5 +40,5 @@ if __name__ == '__main__':
             logging.info(data)
 
     if is_send:
-        ding_msg("xmall" + "\n".join(msg))
+        ding_msg("user", "title", "xmall" + "\n".join(msg))
         logging.critcal("dingding message is sent !!!")
