@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import socket
 
-
+# host： str, port： int
 def check_port_status(host,port):
     sk = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sk.settimeout(3)
