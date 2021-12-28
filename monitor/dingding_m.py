@@ -4,7 +4,7 @@
 import requests,json,sys,os,datetime
 
 def ding_msg(text):
-    webhook="https://oapi.dingtalk.com/robot/send?access_token=f37603f6e3475177000376a553f6ba5d883ae77d72f5773473a60f737636114d"
+    webhook="https://oapi.dingtalk.com/robot/send?access_token=XXXX"
     data={
         "msgtype": "text",
         "text": {
