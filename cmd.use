@@ -1,0 +1,39 @@
+tail -f miner.log |grep -v "skipping disabled"
+
+# 查看调度成功的日志
+tail -f miner.log |grep -i succ
+
+# 查看落盘失败的日志
+cat miner.log |grep "FinalizeFailed("|tail -n5
+
+
+# 终止扇区
+lotus-miner sectors terminate --really-do-it 14987
+
+
+# 查看调度分配情况
+cat miner.log |grep -i succ|grep seal/v0/precommit/2|grep 05-30T13|wc -l
+cat miner.log |grep -i succ|grep seal/v0/precommit/1|grep 05-30T13|wc -l
+cat miner.log |grep -i succ|grep seal/v0/commit/1|grep 05-30T13|wc -l
+cat miner.log |grep -i succ|grep seal/v0/commit/2|grep 05-30T13|wc -l
+#######
+脚本查询最近几个小时的调度情况：
+~/lotus-ops/monitor/sched.tasks.py
+######
+
+
+#查看调度1轮的耗时
+cat miner.log |grep SCHED|grep -v delay|tail -n30
+
+
+# 过滤出sealing jobs里面前49行, 并abort掉
+lotus-miner sealing jobs|head -n49|grep -v ID|awk '{print $1}'|xargs -I {} lotus-miner sealing abort  {}
+
+
+# 卡在packing状态的，是否有出错
+cat miner.log |grep "unhandled sector error"
+
+
+# 其他
+cat miner.log |grep -i err|grep -v "isWinner"|grep -v 27253|grep -v 26139|grep -v "21.1.102"| \
+grep -v " NLworker001102"|grep -v "failed to check worker session"|less
