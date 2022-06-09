@@ -9,8 +9,8 @@ sudo sed -i '/\/usr\/local\/go\/bin/d' /etc/profile
 sudo bash -c "echo 'export PATH=\$PATH:/usr/local/go/bin' >> /etc/profile"
 
 #change sources.list
-#sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-#sudo cp sourcelist.aliyun.ubuntu20.04 /etc/apt/sources.list
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+sudo cp sourcelist.aliyun.ubuntu20.04 /etc/apt/sources.list
 
 
 # install deps
