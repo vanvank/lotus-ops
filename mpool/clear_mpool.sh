@@ -40,13 +40,8 @@ else
         premium=$(./mpool.py $wallet $nonce)
         echo $premium
         feecap=$(./calc_feecap.py)
-        if [ $feecap -lt 2500000000 ]
-        then
-            lotus mpool replace --auto $wallet $nonce
-        else
-            lotus mpool replace --gas-feecap $feecap --gas-premium $premium  $wallet  $nonce
-        fi
-
+        lotus mpool replace --gas-feecap $feecap --gas-premium $premium  $wallet  $nonce
+      
         if [ $? == 0 ];then
             echo $nonce > old_nonce.txt
             date
@@ -63,12 +58,7 @@ then
         echo "消息超过10分钟没上链，触发2次疏通"
         premium=$(./mpool.py $wallet $nonce)
         feecap=$(./calc_feecap.py)
-        if [ $feecap -lt 2500000000 ]
-        then
-            lotus mpool replace --auto $wallet $nonce
-        else
-            lotus mpool replace --gas-feecap $feecap --gas-premium $premium  $wallet  $nonce
-        fi
+        lotus mpool replace --gas-feecap $feecap --gas-premium $premium  $wallet  $nonce
         date
         t=0
         sleep $inter
