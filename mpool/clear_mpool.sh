@@ -7,7 +7,7 @@ lotus mpool pending --local > pending.txt
 wallet=`cat pending.txt |grep -i From|head -n1|awk '{print $2}'|tr -d '",'`
 nonce=`cat pending.txt |grep Nonce|head -n 1|awk '{print $2}'|tr -d ,`
 t=0
-trigger=10
+trigger=1
 stuck_max=$trigger
 
 
