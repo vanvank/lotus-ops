@@ -3,7 +3,7 @@
 set -x
 disk=$1
 dir=/data
-partition=$disk1
+partition=$disk"1"
 parted -s $disk mklabel gpt
 parted -s $disk  mkpart primary ext4 1 100%
 mkdir $dir
